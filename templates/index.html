@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Heart Health Predictor</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+
+        min-height: 100vh;
+
+        background:
+            linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a8a,
+                #0f766e
+            );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 30px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        border-radius: 25px;
+
+        padding: 40px;
+
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    /* HEADER */
+
+    .header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .icon {
+        width: 75px;
+        height: 75px;
+
+        margin: auto;
+        margin-bottom: 15px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(
+            135deg,
+            #ef4444,
+            #f97316
+        );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 38px;
+
+        box-shadow:
+            0 10px 25px rgba(239, 68, 68, 0.35);
+    }
+
+    h1 {
+        color: #0f172a;
+
+        font-size: 32px;
+
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        color: #64748b;
+
+        font-size: 15px;
+    }
+
+    /* FORM */
+
+    form {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-size: 14px;
+
+        font-weight: bold;
+
+        color: #334155;
+
+        margin-bottom: 8px;
+    }
+
+    input,
+    select {
+
+        width: 100%;
+
+        padding: 13px 14px;
+
+        border: 1px solid #cbd5e1;
+
+        border-radius: 10px;
+
+        background: #f8fafc;
+
+        font-size: 15px;
+
+        outline: none;
+
+        transition: 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+
+        border-color: #2563eb;
+
+        background: white;
+
+        box-shadow:
+            0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    input::placeholder {
+        color: #94a3b8;
+    }
+
+    /* BUTTON */
+
+    .button-area {
+        grid-column: 1 / 3;
+
+        margin-top: 10px;
+    }
+
+    button {
+
+        width: 100%;
+
+        padding: 16px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #2563eb,
+                #0f766e
+            );
+
+        color: white;
+
+        font-size: 17px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+    button:hover {
+
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 12px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    /* RESULT */
+
+    .result {
+
+        margin-top: 30px;
+
+        padding: 20px;
+
+        text-align: center;
+
+        border-radius: 14px;
+
+        background: #ecfdf5;
+
+        border: 2px solid #86efac;
+
+        color: #166534;
+
+        font-size: 20px;
+
+        font-weight: bold;
+    }
+
+    /* FOOTER */
+
+    .footer {
+
+        text-align: center;
+
+        margin-top: 30px;
+
+        padding-top: 20px;
+
+        border-top: 1px solid #e2e8f0;
+
+        color: #64748b;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+    .footer strong {
+        color: #2563eb;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+
+        body {
+            padding: 15px;
+        }
+
+        .container {
+            padding: 25px;
+        }
+
+        form {
+            grid-template-columns: 1fr;
+        }
+
+        .button-area {
+            grid-column: 1;
+        }
+
+        h1 {
+            font-size: 26px;
+        }
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="icon">
+        ❤️
+    </div>
+
+    <h1>
+        Heart Health Predictor
+    </h1>
+
+    <p class="subtitle">
+        Enter patient information to generate a prediction
+    </p>
+
+</div>
+
+
+<!-- FORM -->
+
+<form method="POST">
+
+
+    <!-- AGE -->
+
+    <div class="form-group">
+
+        <label for="age">
+            Age
+        </label>
+
+        <input
+            type="number"
+            name="age"
+            id="age"
+            placeholder="Example: 63"
+            required
+        >
+
+    </div>
+
+
+    <!-- SEX -->
+
+    <div class="form-group">
+
+        <label for="sex">
+            Sex
+        </label>
+
+        <select
+            name="sex"
+            id="sex"
+            required
+        >
+
+            <option value="">
+                Select Sex
+            </option>
+
+            <option value="0">
+                Female (0)
+            </option>
+
+            <option value="1">
+                Male (1)
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- CP -->
+
+    <div class="form-group">
+
+        <label for="cp">
+            Chest Pain Type
+        </label>
+
+        <select
+            name="cp"
+            id="cp"
+            required
+        >
+
+            <option value="">
+                Select Type
+            </option>
+
+            <option value="0">Type 0</option>
+            <option value="1">Type 1</option>
+            <option value="2">Type 2</option>
+            <option value="3">Type 3</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- TRESTBPS -->
+
+    <div class="form-group">
+
+        <label for="trestbps">
+            Resting Blood Pressure
+        </label>
+
+        <input
+            type="number"
+            name="trestbps"
+            id="trestbps"
+            placeholder="Example: 145"
+            required
+        >
+
+    </div>
+
+
+    <!-- CHOL -->
+
+    <div class="form-group">
+
+        <label for="chol">
+            Cholesterol
+        </label>
+
+        <input
+            type="number"
+            name="chol"
+            id="chol"
+            placeholder="Example: 233"
+            required
+        >
+
+    </div>
+
+
+    <!-- FBS -->
+
+    <div class="form-group">
+
+        <label for="fbs">
+            Fasting Blood Sugar
+        </label>
+
+        <select
+            name="fbs"
+            id="fbs"
+            required
+        >
+
+            <option value="">
+                Select Value
+            </option>
+
+            <option value="0">
+                0
+            </option>
+
+            <option value="1">
+                1
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- REST ECG -->
+
+    <div class="form-group">
+
+        <label for="restecg">
+            Resting ECG
+        </label>
+
+        <select
+            name="restecg"
+            id="restecg"
+            required
+        >
+
+            <option value="">
+                Select ECG
+            </option>
+
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- THALACH -->
+
+    <div class="form-group">
+
+        <label for="thalach">
+            Maximum Heart Rate
+        </label>
+
+        <input
+            type="number"
+            name="thalach"
+            id="thalach"
+            placeholder="Example: 150"
+            required
+        >
+
+    </div>
+
+
+    <!-- EXANG -->
+
+    <div class="form-group">
+
+        <label for="exang">
+            Exercise Induced Angina
+        </label>
+
+        <select
+            name="exang"
+            id="exang"
+            required
+        >
+
+            <option value="">
+                Select Value
+            </option>
+
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- OLDPEAK -->
+
+    <div class="form-group">
+
+        <label for="oldpeak">
+            Oldpeak
+        </label>
+
+        <input
+            type="number"
+            step="any"
+            name="oldpeak"
+            id="oldpeak"
+            placeholder="Example: 2.3"
+            required
+        >
+
+    </div>
+
+
+    <!-- SLOPE -->
+
+    <div class="form-group">
+
+        <label for="slope">
+            Slope
+        </label>
+
+        <select
+            name="slope"
+            id="slope"
+            required
+        >
+
+            <option value="">
+                Select Slope
+            </option>
+
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- CA -->
+
+    <div class="form-group">
+
+        <label for="ca">
+            Number of Major Vessels
+        </label>
+
+        <select
+            name="ca"
+            id="ca"
+            required
+        >
+
+            <option value="">
+                Select Number
+            </option>
+
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- THAL -->
+
+    <div class="form-group">
+
+        <label for="thal">
+            Thalassemia
+        </label>
+
+        <select
+            name="thal"
+            id="thal"
+            required
+        >
+
+            <option value="">
+                Select Value
+            </option>
+
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- BUTTON -->
+
+    <div class="button-area">
+
+        <button type="submit">
+            ❤️ &nbsp; Predict Heart Disease
+        </button>
+
+    </div>
+
+</form>
+
+
+<!-- RESULT -->
+
+{% if prediction %}
+
+<div class="result">
+
+    Prediction: {{ prediction }}
+
+</div>
+
+{% endif %}
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    Heart Disease Prediction System
+
+    <br>
+
+    Developed by
+    <strong>Alekhya</strong>
+
+</div>
+```
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+2026-09-25 21:47:38,914 - INFO - Before constant Technique X_train columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (242, 13)
+2026-09-25 21:47:38,914 - INFO - Before constant Technique X_test columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (61, 13)
+2026-09-25 21:47:38,929 - INFO - Columns to remove : Index([], dtype='str')
+2026-09-25 21:47:38,930 - INFO - After constant Technique X_train columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (242, 13)
+2026-09-25 21:47:38,930 - INFO - After constant Technique X_test columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (61, 13)
+2026-09-25 21:47:38,931 - INFO - Columns to remove : Index([], dtype='str')
+2026-09-25 21:47:38,932 - INFO - After Quasi constant Technique X_train columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (242, 13)
+2026-09-25 21:47:38,932 - INFO - After Quasi constant Technique X_test columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (61, 13)
+2026-09-25 21:47:38,932 - INFO - After Hypothesis Technique X_train columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (242, 13)
+2026-09-25 21:47:38,932 - INFO - After Hypothesis Technique X_test columns and shape : Index(['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach',
+       'exang', 'oldpeak', 'slope', 'ca', 'thal'],
+      dtype='str') : (61, 13)
